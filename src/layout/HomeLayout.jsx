@@ -4,6 +4,9 @@ import Footer from "../components/Footer";
 import ImageSlider from "../components/ImageSlider";
 import About from "../components/About";
 import HowWorks from "../components/HowWorks";
+import SponsorWinterKit from "../components/WinterKit";
+import WinterKit from "../components/WinterKit";
+import Donor from "../components/Donor";
 
 
 const HomeLayout = () => {
@@ -20,6 +23,12 @@ const HomeLayout = () => {
             </section>
             <section>
             <HowWorks></HowWorks>
+            </section>
+            <section>
+            <WinterKit></WinterKit>
+            </section>
+            <section>
+                <Donor></Donor>
             </section>
             <Footer></Footer>
             

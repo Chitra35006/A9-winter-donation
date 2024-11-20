@@ -5,6 +5,7 @@ import { RiCalendarScheduleFill } from "react-icons/ri";
 import { FaWpforms } from "react-icons/fa6";
 import { PiSelectionAllFill } from "react-icons/pi";
 import SuportedDivisions from "./SuportedDivisions";
+import CollectionPoints from "./CollectionPoints";
 const HowWorks = () => {
   return (
     <div className="w-11/12 mx-auto my-10">
@@ -108,6 +109,7 @@ const HowWorks = () => {
           </div>
         </div>
         <SuportedDivisions></SuportedDivisions>
+        <CollectionPoints></CollectionPoints>
       </div>
     </div>
   );
