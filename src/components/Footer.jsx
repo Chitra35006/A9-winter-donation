@@ -26,6 +26,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
             <ul className="flex space-x-6">
+              <div>
               <li>
                 <a
                   href="https://facebook.com"
@@ -46,6 +47,8 @@ const Footer = () => {
                   <FaSquareXTwitter></FaSquareXTwitter> Twitter
                 </a>
               </li>
+              </div>
+              <div>
               <li>
                 <a
                   href="https://linkedin.com"
@@ -66,6 +69,7 @@ const Footer = () => {
                   <FaInstagramSquare ></FaInstagramSquare> Instagram
                 </a>
               </li>
+              </div>
             </ul>
           </div>
 

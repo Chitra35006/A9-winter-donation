@@ -1,12 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import ImageSlider from "../components/ImageSlider";
-import About from "../components/About";
-import HowWorks from "../components/HowWorks";
-import SponsorWinterKit from "../components/WinterKit";
-import WinterKit from "../components/WinterKit";
-import Donor from "../components/Donor";
+
 
 
 const HomeLayout = () => {
@@ -15,7 +10,7 @@ const HomeLayout = () => {
             <header>
             <NavBar></NavBar>
             </header>
-            <section>
+            {/* <section>
             <ImageSlider></ImageSlider>
             </section>
             <section>
@@ -28,8 +23,11 @@ const HomeLayout = () => {
             <WinterKit></WinterKit>
             </section>
             <section>
-                <Donor></Donor>
-            </section>
+            <Donor></Donor>
+            </section> */}
+            <main>
+                <Outlet></Outlet>
+            </main>
             <Footer></Footer>
             
             

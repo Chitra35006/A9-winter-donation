@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './NavBar.css'
 import logo from '../assets/logo2.png'
 
@@ -11,7 +11,7 @@ const NavBar = () => {
         <li><NavLink className={({ isActive }) => isActive ? "active-link" : "inactive-link"} to="/dashboard" >Dashboard</NavLink></li>
     </>
   return (
-    <div>
+    <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="navbar bg-gradient-to-r from-green-200 via-cyan-300 to-green-200">
         <div className="navbar-start">
           <div className="dropdown">
@@ -48,8 +48,10 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <a className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</a>
-          <a className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</a>
+          <Link to='/register' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</Link>
+          <Link to='/login' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link>
+          {/* <Link to='/register' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</Link>
+          <Link to="/login" className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link> */}
         </div>
       </div>
     </div>
