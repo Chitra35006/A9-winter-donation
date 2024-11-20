@@ -1,0 +1,9 @@
+.active-link {
+    color: rgb(111, 222, 236);
+    font-weight: bold;
+    background-color: rgb(11, 37, 92);
+    
+}
+.inactive-link {
+    color: gray;
+}
