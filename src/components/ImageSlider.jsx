@@ -80,7 +80,7 @@ const ImageSlider = () => {
                  "
               > 
                 <p className="text-sm md:text-4xl mb-2">Welcome to Winter Wizard. Let's Donate Love</p>
-                <span className="text-cyan-200 text-[10px] md:text-4xl">{slide.title}</span>
+                <span className="text-cyan-200 text-[10px] sm:text-base">{slide.title}</span>
                 
               </div>
             </SwiperSlide>
