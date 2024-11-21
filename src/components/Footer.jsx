@@ -75,7 +75,7 @@ const Footer = () => {
 
           {/* Copyright Notice */}
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-semibold text-white mb-4">About</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Winter Wizard</h3>
             <p className="text-sm">
               Building seamless interfaces for web applications with React and
               TailwindCSS.

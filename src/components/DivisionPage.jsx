@@ -20,7 +20,7 @@ const DivisionPage = () => {
         <div className='mt-50 mb-20'>
             <DonationCampPlace></DonationCampPlace>
             <div className="p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Donation Campaign</h1>
+      <h1 className="md:text-3xl text-xl font-bold text-center mb-6">Donation Campaign</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {singleData.map((campaignData,index) => (
           <div
@@ -33,7 +33,7 @@ const DivisionPage = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className="text-base lg:text-lg font-semibold text-gray-800">
                 {campaignData.title}
               </h2>
               <p className="text-gray-600 mt-2">{campaignData.description}</p>

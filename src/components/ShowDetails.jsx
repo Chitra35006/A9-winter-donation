@@ -18,36 +18,36 @@ const ShowDetails = () => {
 
     return (
        <div className='grid grid-cols-12 my-20'>
-         <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border lg:col-span-6 col-span-12">
+         <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border lg:col-span-6 col-span-12 md:px-0  px-4">
         <img
           className="w-full h-56 object-cover"
           src={data?.image}
           alt={data?.title}
         />
         <div className="p-6">
-          <h2 className="text-2xl font-bold text-[#0B255C]">{data?.title}</h2>
+          <h2 className="text-base sm:text-2xl font-bold text-[#0B255C]">{data?.title}</h2>
           <p className="text-sm text-cyan-500 mb-4">{data?.division}</p>
           <p className="text-gray-700 mb-4">{data?.description}</p>
           <div className="mb-4">
-            <p className='inline-flex items-center'>
+            <p className='inline-flex text-[12px] sm:text-base items-center'>
             <GrStatusUnknownSmall className='mr-2 text-[#0B255C]'></GrStatusUnknownSmall>
               <span className="font-bold mr-2">Status: </span>{data?.status}
             </p>
-            <p className='inline-flex items-center'>
+            <p className='inline-flex text-[12px] sm:text-base items-center'>
                 <IoMdContact className='mr-2 text-[#0B255C]'></IoMdContact>
               <span className="font-bold mr-2">Contact:</span> {data?.contactInfo}
             </p>
           </div>
           <div className="mb-4 space-x-4">
-            <p className='inline-flex items-center'>
+            <p className='inline-flex text-[12px] sm:text-base items-center'>
                 <IoIosPeople className='mr-2 text-cyan-500'></IoIosPeople>
               <span className="font-bold mr-2">Donors:</span> {data?.donors}
             </p>
-            <p className='inline-flex items-center '>
+            <p className='inline-flex text-[12px] sm:text-base items-center '>
                 <FaGift className='mr-2 text-cyan-500'></FaGift>
               <span className="font-bold mr-2">Kits Distributed:</span> {data?.kitsDistributed}
             </p>
-            <p className='inline-flex items-center'>
+            <p className='inline-flex text-[12px] sm:text-base items-center'>
                 <CiBookmarkPlus className='mr-2 text-cyan-500'></CiBookmarkPlus>
               <span className="font-bold mr-2">Beneficiaries:</span> {data?.beneficiaries}
             </p>
@@ -70,7 +70,7 @@ const ShowDetails = () => {
           </p>
         </div>
       </div>
-      <div className='lg:col-span-6 col-span-12'>
+      <div className='lg:col-span-6 col-span-12 md:px-0 px-4'>
         <DonationForm></DonationForm>
       </div>
        </div>

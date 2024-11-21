@@ -42,7 +42,7 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="w-8/12 mx-auto my-16">
+    <div className="w-8/12 mx-auto my-20">
       <h1 className="text-2xl font-bold text-center mb-6">Update Profile</h1>
       {message && <p className="text-center text-red-500 mb-4">{message}</p>}
       <form onSubmit={handleUpdateProfile} className="space-y-4">
@@ -66,7 +66,7 @@ const UpdateProfile = () => {
             className="input input-bordered w-full"
           />
         </div>
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-[#0B255C] text-white w-full">
           Update Profile
         </button>
       </form>

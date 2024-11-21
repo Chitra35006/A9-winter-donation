@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute';
 import UserDashboard from '../components/UserDashboard';
 import UpdateProfile from '../components/UpdateProfile';
 import ForgotPassword from '../components/ForgotPassword';
+import HowHelp from '../components/HowHelp';
 
 const Router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ const Router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/help',
+                element:<HowHelp></HowHelp>
+
             },
             {
                 path: '/forgotPassword',

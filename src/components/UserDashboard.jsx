@@ -9,8 +9,8 @@ const UserDashboard = () => {
         <div className="w-8/12 mx-auto my-32">
         {/* Welcome Message */}
         <div className="mb-8 text-center">
-          <h1 className=" text-gray-800 animate__animated animate__bounce text-center text-3xl font-bold mt-8">
-            Welcome, <span className="text-blue-500">{user?.displayName || "Guest"}</span>!
+          <h1 className=" text-gray-800 animate__animated animate__bounce text-center text-xl sm:text-3xl font-bold mt-8">
+            Welcome, <span className="text-green-500">{user?.displayName || "Guest"}</span>!
           </h1>
           <p className="text-gray-600">We’re glad to have you here.</p>
         </div>

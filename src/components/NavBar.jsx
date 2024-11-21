@@ -41,7 +41,7 @@ const NavBar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
-            <img className="w-10" src={logo} /><span className="text-2xl text-green-500">W</span>wizard <span className="ml-2 text-green-700"></span>
+            <img className="w-10 hidden lg:block" src={logo} /><span className="text-2xl text-green-500">W</span>wizard <span className="ml-2 text-green-700 hidden lg:block"></span>
           </a>
           
         </div>
