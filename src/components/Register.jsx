@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
+
+  const {createNewUser} = useContext(AuthContext);
+
+  const [showPassword,setShowPassword] = useState(false);
+
+  //get form data
+  const handleSubmit = (e) =>{
+    const form = new FormData(e.target);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log({name,email,photo,password});
+
+    createNewUser(email,password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((err)=>{
+      const errorCode = err.code;
+      const errorMessage = err.message;
+      console.log(errorCode,errorMessage);
+    })
+  }
   return (
     <div>
       <div className="min-h-screen flex justify-center items-center my-20">
@@ -8,7 +37,7 @@ const Register = () => {
           <h2 className="font-semibold text-2xl text-center text-[#0B255C]  mt-5">
             Register Your Account
           </h2>
-          <form className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             {/* Name */}
             <div className="form-control">
               <label className="label">
@@ -16,6 +45,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Enter Your Name"
                 className="input input-bordered"
                 required
@@ -28,6 +58,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                name="photo"
                 placeholder="Enter Your Photo UrL"
                 className="input input-bordered"
                 required
@@ -40,22 +71,31 @@ const Register = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
                 required
               />
             </div>
             {/* Password */}
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
+              <button
+              onClick={()=>setShowPassword(!showPassword)}
+              className="btb btn-xs absolute right-4 top-12">
+                {
+                  showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                }
+              </button>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary text-cyan-400 font-bold bg-[#0B255C]">
@@ -63,6 +103,7 @@ const Register = () => {
               </button>
             </div>
           </form>
+          <button className="btn text-blue-700 bg-blue-200 "><FaGoogle></FaGoogle> Login With Google</button>
           <p className="text-center text-gray-500 font-semibold">
             Already Registered? Go to{" "}
             <Link className="text-[#0B255C]" to="/auth/login">
