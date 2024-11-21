@@ -9,6 +9,8 @@ import Home from '../components/Home';
 import DivisionPage from '../components/DivisionPage';
 import ShowDetails from '../components/ShowDetails';
 import PrivateRoute from './PrivateRoute';
+import UserDashboard from '../components/UserDashboard';
+import UpdateProfile from '../components/UpdateProfile';
 
 const Router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const Router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/dashboard',
+                element: <UserDashboard></UserDashboard>
+            },
+            {
+                path:'/updateProfile',
+                element: <UpdateProfile></UpdateProfile>
             },
             {
                 path: '/donationCampP',

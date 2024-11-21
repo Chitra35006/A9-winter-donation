@@ -1,15 +1,17 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
 
-  const {setUser,createNewUser,signInWithGoogle} = useContext(AuthContext);
+  const {setUser,createNewUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext);
 
   const [showPassword,setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const navigate = useNavigate();
 
   //get form data
   const handleSubmit = (e) =>{
@@ -38,6 +40,13 @@ const Register = () => {
     .then(result =>{
       const user = result.user;
       setUser(user);
+      updateUserProfile({
+        displayName: name,
+        photoURL: photo,}).then(()=>{
+          navigate("/");
+        }).catch(err=>{
+          console.log("ERROR",err);
+        })
       console.log(user);
     })
     .catch((err)=>{
