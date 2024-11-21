@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const HomeLayout = () => {
     return (
-        <div className="font-lato">
+        <div className="font-lato flex flex-col min-h-screen overflow-hidden">
             <header>
             <NavBar></NavBar>
             </header>
@@ -28,7 +28,9 @@ const HomeLayout = () => {
             <main>
                 <Outlet></Outlet>
             </main>
+            <footer>
             <Footer></Footer>
+            </footer>
             
             
         </div>

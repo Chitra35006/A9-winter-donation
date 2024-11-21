@@ -5,7 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="bg-[#0c1833]  text-gray-300 py-8">
+    <footer className="bg-[#0c1833]  w-full text-gray-300 py-8">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Information */}

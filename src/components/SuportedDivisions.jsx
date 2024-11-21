@@ -21,7 +21,7 @@ const divisions = [
   ];
 const SuportedDivisions = () => {
     return (
-        <div className="w-11/12 mx-auto p-8 bg-cyan-50 mt-10">
+        <div className="w-11/12 mx-auto p-8 bg-cyan-50 my-20">
       <h2 className="text-2xl font-bold text-center mb-6 text-[#0B255C] ">Supported Divisions</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {divisions.map((division, index) => (

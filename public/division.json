@@ -1,0 +1,59 @@
+[
+    {
+      "id": 1,
+      "name": "Dhaka",
+      "totalDonors": 120,
+      "beneficiaries": 5000,
+      "kitsDistributed": 4800
+    },
+    {
+      "id": 2,
+      "name": "Chattogram",
+      "totalDonors": 90,
+      "beneficiaries": 4000,
+      "kitsDistributed": 3900
+    },
+    {
+      "id": 3,
+      "name": "Rajshahi",
+      "totalDonors": 50,
+      "beneficiaries": 3000,
+      "kitsDistributed": 2900
+    },
+    {
+      "id": 4,
+      "name": "Khulna",
+      "totalDonors": 70,
+      "beneficiaries": 2500,
+      "kitsDistributed": 2400
+    },
+    {
+      "id": 6,
+      "name": "Barishal",
+      "totalDonors": 40,
+      "beneficiaries": 2000,
+      "kitsDistributed": 1900
+    },
+    {
+      "id": 5,
+      "name": "Sylhet",
+      "totalDonors": 60,
+      "beneficiaries": 2200,
+      "kitsDistributed": 2150
+    },
+    {
+      "id": 7,
+      "name": "Rangpur",
+      "totalDonors": 30,
+      "beneficiaries": 1500,
+      "kitsDistributed": 1400
+    },
+    {
+      "id": 8,
+      "name": "Mymensingh",
+      "totalDonors": 25,
+      "beneficiaries": 1000,
+      "kitsDistributed": 950
+    }
+  ]
+  
