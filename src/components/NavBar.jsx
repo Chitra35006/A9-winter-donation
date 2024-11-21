@@ -41,8 +41,9 @@ const NavBar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
-            <img className="w-10" src={logo} /><span className="text-2xl text-green-500">W</span>wizard <span className="ml-2 text-green-700">{user && user.email}</span>
+            <img className="w-10" src={logo} /><span className="text-2xl text-green-500">W</span>wizard <span className="ml-2 text-green-700"></span>
           </a>
+          
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -50,10 +51,40 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          {
-            user && user?.email ? <button className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none" onClick={logOut}>Logout</button> : <Link to='/login' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link>
-          }
-          <Link to='/register' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</Link>
+        {
+  user && user?.email ? (
+    <>
+    <img
+              className="w-14 h-14 rounded-full object-cover"
+              src={user?.photoURL || "https://via.placeholder.com/150"}
+              alt="User Pic"
+            />
+      <button
+        className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none"
+        onClick={logOut}
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <>
+      <Link
+        to="/login"
+        className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none"
+      >
+        Login
+      </Link>
+      {/* Only show Sign Up if the user is not logged in */}
+      <Link
+        to="/register"
+        className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none"
+      >
+        Sign Up
+      </Link>
+    </>
+  )
+}
+
           
         </div>
       </div>

@@ -28,7 +28,7 @@ const ImageSlider = () => {
         },
       ];
     return (
-        <div style={{ width: "90%",height: "300px",margin: "auto",marginBottom:"50px" ,padding: "50px 10px" }}>
+        <div  style={{ width: "90%",height: "300px",margin: "auto",marginBottom:"50px" ,padding: "50px 10px" }}>
         <Swiper
           modules={[EffectCoverflow, Pagination, Autoplay]}
           effect="coverflow"
@@ -79,7 +79,7 @@ const ImageSlider = () => {
                  font-bold 
                  "
               > 
-                <p className="text-sm md:text-4xl mb-2">Welcome to Winter Wizard. Let's Donate Love</p>
+                <p className="text-sm md:text-4xl mb-2">Welcome to Winter Wizard.The more you give, the more you get.</p>
                 <span className="text-cyan-200 text-[10px] sm:text-base">{slide.title}</span>
                 
               </div>

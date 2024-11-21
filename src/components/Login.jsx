@@ -2,9 +2,13 @@ import React, { useContext,  useState  } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../Provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
+
 const Login = () => {
 
-    const{setUser,signInWithEmail} = useContext(AuthContext);
+    const{setUser,signInWithEmail,signInWithGoogle} = useContext(AuthContext);
 
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -24,6 +28,7 @@ const Login = () => {
     .then(result =>{
       const user = result.user;
       setUser(user);
+      toast.success('Login successfully.');
       const from = location.state?.from?.pathname || "/";
                 navigate(from, { replace: true });
     })
@@ -44,6 +49,19 @@ const Login = () => {
         setErrorMessage("An error occurred. Please try again.");
       }
     })
+    }
+
+    //google sign in
+  const handleGoogleSignIn =()=>{
+    //sign in with pop up
+    signInWithGoogle()
+    .then((result) => {
+      console.log("User Info:", result.user);
+      navigate(location?.state?.from?.pathname || "/"); 
+    })
+    .catch((err) => {
+      console.error("Sign-in Error:", err.message);
+    });
     }
     return (
         <div>
@@ -82,12 +100,9 @@ const Login = () => {
               errorMessage && <p className="p-2 mt-2 bg-red-600 text-yellow-400">{errorMessage}</p>
               }
               <label className="label">
-                <a
-                  href="#"
-                  className="label-text-alt link link-hover text-[#0B255C] font-bold"
-                >
+                <Link to={'/forgotPassword'} className="label-text-alt link link-hover text-[#0B255C] font-bold">
                   Forgot password?
-                </a>
+                  </Link>
               </label>
             </div>
             <div className="form-control mt-6">
@@ -96,10 +111,11 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <button className="btn text-blue-700 bg-blue-200 "><FaGoogle></FaGoogle> Login With Google</button>
+          <button type="button" onClick={handleGoogleSignIn}  className="btn text-blue-700 bg-blue-200 "><FaGoogle></FaGoogle> Login With Google</button>
           <p className="text-center text-gray-500 font-semibold my-6">Don't Have a account? <Link className="text-[#0B255C]" to="/register">Register</Link> </p>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
     </div>
     );
 };

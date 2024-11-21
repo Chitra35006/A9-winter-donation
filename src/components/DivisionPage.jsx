@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import DonationCampPlace from './DonationCampPlace';
+import NoDataFound from './NoDataFound';
 
-const DivisionPage = ({params}) => {
-    const { singleData } = useLoaderData();
+const DivisionPage = () => {
+  // Load data from the loader
+  const { singleData } = useLoaderData();
 
-    console.log(singleData);
+  // Handle cases where data is missing or invalid
+  if (!singleData || singleData.length === 0) {
+    return (
+      <div className="">
+        <NoDataFound></NoDataFound>
+      </div>
+    );
+  }
    
     return (
         <div className='mt-50 mb-20'>

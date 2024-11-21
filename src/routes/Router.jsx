@@ -11,6 +11,7 @@ import ShowDetails from '../components/ShowDetails';
 import PrivateRoute from './PrivateRoute';
 import UserDashboard from '../components/UserDashboard';
 import UpdateProfile from '../components/UpdateProfile';
+import ForgotPassword from '../components/ForgotPassword';
 
 const Router = createBrowserRouter([
     {
@@ -34,12 +35,16 @@ const Router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
+                path: '/forgotPassword',
+                element: <ForgotPassword></ForgotPassword>
+            },
+            {
                 path: '/dashboard',
-                element: <UserDashboard></UserDashboard>
+                element: <PrivateRoute><UserDashboard></UserDashboard></PrivateRoute>
             },
             {
                 path:'/updateProfile',
-                element: <UpdateProfile></UpdateProfile>
+                element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
             },
             {
                 path: '/donationCampP',
@@ -78,13 +83,13 @@ const Router = createBrowserRouter([
                     return { singleData }; // Returning singleData
                 },
             },
-            
-            {
-                path: '*',
-                element: <Four04Page></Four04Page>
-            }
         ]
+        
     },
+    {
+        path: '*',
+        element: <Four04Page></Four04Page>
+    }
     
 ])
 

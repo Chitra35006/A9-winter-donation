@@ -4,6 +4,11 @@ import { FaGoogle } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
+
+
 const Register = () => {
 
   const {setUser,createNewUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext);
@@ -40,6 +45,7 @@ const Register = () => {
     .then(result =>{
       const user = result.user;
       setUser(user);
+      toast.success('Congratulations! Your registration was successful.');
       updateUserProfile({
         displayName: name,
         photoURL: photo,}).then(()=>{
@@ -66,6 +72,7 @@ const Register = () => {
     signInWithGoogle()
     .then((result) => {
       console.log("User Info:", result.user);
+      navigate(location?.state?.from?.pathname || "/"); 
     })
     .catch((err) => {
       console.error("Sign-in Error:", err.message);
@@ -156,7 +163,9 @@ const Register = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
+    
   );
 };
 

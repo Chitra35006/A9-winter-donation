@@ -1,6 +1,6 @@
 import React, { createContext,useEffect,useState } from 'react';
 import app from "../firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile,sendPasswordResetEmail } from "firebase/auth";
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -40,6 +40,16 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser,updatedData);
     }
 
+    const resetPassword = (email) => {
+        sendPasswordResetEmail(getAuth(app), email)
+          .then(() => {
+            notify("Password reset email sent successfully"); // Notify on successful password reset email sent
+          })
+          .catch((error) => {
+            notify("Error sending password reset email: " + error.message); // Notify on failed password reset
+          });
+      };
+
 
     const authInfo={
         user,
@@ -49,7 +59,8 @@ const AuthProvider = ({children}) => {
         logOut,
         signInWithEmail,
         loading,
-        updateUserProfile
+        updateUserProfile,
+        resetPassword
         
         
     }
