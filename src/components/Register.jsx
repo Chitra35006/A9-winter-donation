@@ -6,12 +6,14 @@ import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
 
-  const {createNewUser} = useContext(AuthContext);
+  const {setUser,createNewUser,signInWithGoogle} = useContext(AuthContext);
 
   const [showPassword,setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   //get form data
   const handleSubmit = (e) =>{
+    e.preventDefault();
     const form = new FormData(e.target);
     const name = form.get("name");
     const photo = form.get("photo");
@@ -19,17 +21,47 @@ const Register = () => {
     const password = form.get("password");
     console.log({name,email,photo,password});
 
+    setErrorMessage('');
+    if(password.length < 6){
+      setErrorMessage('Must be at least 6 characters long');
+      return;
+    }
+    
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+    if(!passwordRegex.test(password)){
+      setErrorMessage('include at least one uppercase and one lowercase letter')
+      return;
+    }
+
+    //email&password login
     createNewUser(email,password)
     .then(result =>{
       const user = result.user;
+      setUser(user);
       console.log(user);
     })
     .catch((err)=>{
       const errorCode = err.code;
       const errorMessage = err.message;
       console.log(errorCode,errorMessage);
-    })
+      if (errorCode === "auth/email-already-in-use") {
+        setErrorMessage("This email address is already in use. Please try logging in or use a different email for sign up.");
+      } else {
+        setErrorMessage("An error occurred. Please try again.");
+      }
+    })  
   }
+  //google sign in
+  const handleGoogleSignIn =()=>{
+    //sign in with pop up
+    signInWithGoogle()
+    .then((result) => {
+      console.log("User Info:", result.user);
+    })
+    .catch((err) => {
+      console.error("Sign-in Error:", err.message);
+    });
+    }
   return (
     <div>
       <div className="min-h-screen flex justify-center items-center my-20">
@@ -91,11 +123,14 @@ const Register = () => {
               />
               <button
               onClick={()=>setShowPassword(!showPassword)}
-              className="btb btn-xs absolute right-4 top-12">
+              className="btn btn-xs absolute right-4 top-12">
                 {
                   showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                 }
               </button>
+              {
+              errorMessage && <p className="p-2 mt-2 bg-red-600 text-yellow-400">{errorMessage}</p>
+              }
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary text-cyan-400 font-bold bg-[#0B255C]">
@@ -103,12 +138,12 @@ const Register = () => {
               </button>
             </div>
           </form>
-          <button className="btn text-blue-700 bg-blue-200 "><FaGoogle></FaGoogle> Login With Google</button>
-          <p className="text-center text-gray-500 font-semibold">
-            Already Registered? Go to{" "}
+          <button type="button" onClick={handleGoogleSignIn} className="btn text-blue-700 bg-blue-200 "><FaGoogle></FaGoogle> Login With Google</button>
+          <p className="text-center mt-2 text-gray-500 font-semibold">
+            Already Registered? Go to 
             <Link className="text-[#0B255C]" to="/auth/login">
-              Login
-            </Link>{" "}
+               <span className="ml-2">Login</span>
+            </Link>
           </p>
         </div>
       </div>

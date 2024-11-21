@@ -8,6 +8,7 @@ import DonationCampPlace from '../components/DonationCampPlace';
 import Home from '../components/Home';
 import DivisionPage from '../components/DivisionPage';
 import ShowDetails from '../components/ShowDetails';
+import PrivateRoute from './PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -56,7 +57,9 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/division/:u_id',
-                element: <ShowDetails></ShowDetails>,
+                element: <PrivateRoute>
+                    <ShowDetails></ShowDetails>
+                </PrivateRoute>,
                 loader: async ({ params }) => {
                     const res = await fetch('/allData.json');
                     const data = await res.json();

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './NavBar.css'
 import logo from '../assets/logo2.png'
+import { AuthContext } from "../Provider/AuthProvider";
 
 const NavBar = () => {
+    const{user,logOut} = useContext(AuthContext);
     const links = <>
         <li><NavLink className={({ isActive }) => isActive ? "active-link" : "inactive-link"} to="/" >Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "active-link" : "inactive-link"} to="/donationCampP" >Donation Campaigns</NavLink></li>
@@ -39,7 +41,7 @@ const NavBar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
-            <img className="w-10" src={logo} /><span className="text-2xl text-green-500">W</span>wizard
+            <img className="w-10" src={logo} /><span className="text-2xl text-green-500">W</span>wizard <span className="ml-2 text-green-700">{user && user.email}</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -48,10 +50,11 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
+          {
+            user && user?.email ? <button className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none" onClick={logOut}>Logout</button> : <Link to='/login' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link>
+          }
           <Link to='/register' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</Link>
-          <Link to='/login' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link>
-          {/* <Link to='/register' className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Sign Up</Link>
-          <Link to="/login" className="btn bg-teal-400 hover:bg-cyan-600 font-bold text-blue-900 border-none">Login</Link> */}
+          
         </div>
       </div>
     </div>
