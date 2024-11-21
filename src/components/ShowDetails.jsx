@@ -7,6 +7,7 @@ import { FaGift } from "react-icons/fa6";
 import { IoIosPeople } from "react-icons/io";
 import { IoMdContact } from "react-icons/io";
 import { GrStatusUnknownSmall } from "react-icons/gr";
+import DonationForm from './DonationForm';
 
 
 const ShowDetails = () => {
@@ -16,7 +17,8 @@ const ShowDetails = () => {
     console.log(data);
 
     return (
-        <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border my-20">
+       <div className='grid grid-cols-12 my-20'>
+         <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border lg:col-span-6 col-span-12">
         <img
           className="w-full h-56 object-cover"
           src={data?.image}
@@ -68,6 +70,10 @@ const ShowDetails = () => {
           </p>
         </div>
       </div>
+      <div className='lg:col-span-6 col-span-12'>
+        <DonationForm></DonationForm>
+      </div>
+       </div>
     );
 };
 
